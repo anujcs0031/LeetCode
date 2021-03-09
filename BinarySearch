@@ -1,0 +1,38 @@
+package sample;
+
+public class BinarySearch {
+    public static void main(String args[]) {
+        int arr[] = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11};
+        int key = 9;
+        int index =0;
+        int position = BinarySearchElement(arr, key, index);
+
+        if (position == 0) {
+            System.out.println("Element Not Found");
+        } else {
+            System.out.println("Element Found at position" + position);
+        }
+    }
+
+    static int BinarySearchElement(int[] arr, int key, int index) {
+        int middle = arr.length / 2;
+        int arrlength = arr.length;
+        for (int i = index; i < arrlength; i++) {
+            if (arr[middle] == key) {
+                System.out.println("Element found at position" + middle);
+                break;
+            }
+            if (arr[middle] < key) {
+                index = middle;
+                BinarySearchElement(arr, key, index);
+            }
+            if (arr[middle] > key) {
+                index = i;
+                BinarySearchElement(arr, key, index);
+            }
+        }
+
+        return middle;
+    }
+}
+

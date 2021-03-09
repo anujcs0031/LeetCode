@@ -1,0 +1,36 @@
+import java.util.*;
+class Solution {
+    public static int twoSum(int nums[], int target) {
+        int length = nums.length;
+        List<Integer> list=new ArrayList<Integer>();
+        for(int i=0;i<length;i++)
+        {
+            for(int j=i+1;j<length;j++)
+            {
+                if(nums[i] + nums[j] == target)
+                {
+                    list.add(i);
+                    list.add(j);
+                    System.out.println(list);
+                    break;
+                }
+            }
+        }
+    }
+}
+    public static int main(String args[])
+    {
+        int arr[] = new int[100];
+        int target;
+        Scanner sc = new Scanner(System.in);
+        target = sc.nextInt();
+        int index;
+        for(int i=0; i<arr.length;i++)
+        {
+            arr[i] = sc.nextInt();
+        }
+        index = twoSum(arr,target);
+        System.out.println(index);
+
+    }
+}

@@ -1,0 +1,30 @@
+import java.lang.*;
+class Solution {
+    public boolean isPalindrome(int x) {
+        int count=0;
+        if(x<0) //number is negative
+        {
+            return false;
+        }
+        //count the number of digits in number
+        while(x!=0)
+        {
+            x=x%10;
+            count++;
+        }
+        //now reverse the number
+        double d=0;
+        int a,b;
+        for(int i=0; i<count;i++)
+        {
+            a = x%10;
+            b = x/10;
+            x=b;
+            d = d+a*Math.pow(10,count-1);
+        }
+        if(d==x)
+            return true;
+        else
+            return false;
+    }
+}

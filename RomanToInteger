@@ -1,0 +1,50 @@
+import java.util.HashMap;
+import java.util.Map.Entry;
+class Solution {
+    public int romanToInt(String s) {
+        int count = 0;
+        HashMap<String, Integer> symbols = new HashMap<String, Integer>();
+        symbols.put("I",1);
+        symbols.put("V",5);
+        symbols.put("X",10);
+        symbols.put("L",50);
+        symbols.put("C",100);
+        symbols.put("D",500);
+        symbols.put("M",1000);
+        String []sp = s.split("");
+        for(int i=0; i<s.length(); i++)
+        {
+            System.out.print(sp[i]);
+            for(Entry<String,Integer> entry: symbols.entrySet())
+            {
+                if(entry.getKey().equals(sp[i]))
+                {
+                    count = count + entry.getValue();
+                }
+            }
+        }
+        return count;
+
+        if(sp[i] == "I" && sp[i+1] = "V")
+            count = count + 4;
+        if(sp[i] == "I" && sp[i+1] = "X")
+            count = count + 4;
+
+        if(sp[i] == "X" && sp[i+1] = "L")
+            count = count + 40;
+
+        if(sp[i] == "X" && sp[i+1] = "C")
+            count = count + 90;
+
+        if(sp[i] == "C" && sp[i+1] = "D")
+            count = count + 400;
+
+        if(sp[i] == "C" && sp[i+1] = "M")
+            count = count + 900;
+
+
+
+
+
+    }
+}

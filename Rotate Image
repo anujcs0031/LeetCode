@@ -1,0 +1,45 @@
+class Solution {
+    public void rotate(int[][] matrix) {
+        int matrixlength = matrix.length;
+        int transpose[][]=new int[matrixlength][matrixlength];
+        for(int i=0; i<matrixlength;i++)
+        {
+            for(int j=0; j<matrix.length; j++)
+            {
+                transpose[i][j] = matrix[j][i];
+
+            }
+        }
+        for(int i=0; i<matrixlength;i++)
+        {
+            int temp = transpose[i][0];
+            int c = matrix.length-1;
+            for(int j=0; j<matrixlength;j++)
+            {
+                if(c>0)
+                {
+                    transpose[i][j] = transpose[i][c];
+                    c--;
+                }
+                else
+                {
+                    transpose[i][j] = temp;
+
+
+                }
+            }
+
+        }
+
+        for(int i=0;i<matrix.length;i++)
+        {
+            for(int j=0;j<matrix.length;j++)
+            {
+                matrix[i][j] = transpose[i][j];
+
+
+            }
+        }
+    }
+
+}
