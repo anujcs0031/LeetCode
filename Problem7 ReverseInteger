@@ -1,41 +1,62 @@
 import static java.lang.Math.pow;
 class Calculate
 {
-public int CalculateRev(int x)
+public long CalculateRev(long x)
  {
-    int number = x; int count =1; int rev=0; int num = x;  
-        while(num/10!=0)
+     long number = x; int count =1; long rev=0;  long num = x;  
+    if(number<0)
+       number = -number;
+
+    while(num/10!=0)
         {
             count = count+1;
             num = num/10;
         }
     for(int i=count; i>0; i--)
         {
-          int num1 = number%10;
+          long num1 = number%10;
           number = number/10;
           rev = rev + num1*(int)Math.pow(10,i-1);
         }    
-    return rev;
+    return (long)rev;
  }     
 }
 class Solution {
 public int reverse(int x) {
-int number1 = x; int rev=0;
+long main_num = x;
+long number1 = x; long rev=0;
 if(x == 0)
 return 0;    
-if(x>Integer.MAX_VALUE || x<Integer.MIN_VALUE)
-    return 0;
 Calculate calculate = new Calculate();    
 if(x<0)
 {  
-number1 = x*(-1);  
-rev = calculate.CalculateRev(number1) * -1;
+rev = calculate.CalculateRev(number1);
 }   
 if(x>0)
 { 
 rev = calculate.CalculateRev(number1);
 }     
+
+if(main_num < 0 && rev > 2147483647)
+{
+    return 0;
+}
+else if(main_num > 0 && rev> 2147483646)
+{
+    return 0;
+}
+else
+{
+    if(main_num < 0)
+    {
+        rev = rev*-1;
+    }
+    else
+    {
+        rev = rev;
+    }
+}
     
-return rev;
-  }
+return (int)rev;
+}
 }
