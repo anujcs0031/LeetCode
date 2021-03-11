@@ -6,7 +6,6 @@ public long CalculateRev(long x)
      long number = x; int count =1; long rev=0;  long num = x;  
     if(number<0)
        number = -number;
-
     while(num/10!=0)
         {
             count = count+1;
@@ -27,34 +26,25 @@ long main_num = x;
 long number1 = x; long rev=0;
 if(x == 0)
 return 0;    
-Calculate calculate = new Calculate();    
+Calculate calculate = new Calculate(); 
+    
 if(x<0)
-{  
 rev = calculate.CalculateRev(number1);
-}   
+    
 if(x>0)
-{ 
 rev = calculate.CalculateRev(number1);
-}     
 
 if(main_num < 0 && rev > 2147483647)
-{
     return 0;
-}
+    
 else if(main_num > 0 && rev> 2147483646)
-{
     return 0;
-}
 else
 {
     if(main_num < 0)
-    {
         rev = rev*-1;
-    }
     else
-    {
         rev = rev;
-    }
 }
     
 return (int)rev;
